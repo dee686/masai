@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    <link rel="stylesheet" href="git.css">
+</head>
+<body>
+    <div id="navbar">
+        <div><a href="frontend.html">Frontend</a></div>
+    <div><a href="backend.html">Backend</a></div>
+    </div>
+    <div id="details"></div>
+</body>
+</html>
+
+<script>
+     var investorarr=JSON.parse(localStorage.getItem("investordata"))||[];
+
+    //  display(investorarr)
+
+     investorarr.forEach(function(element){
+         var dbox= document.createElement("div");
+
+         var image=document.createElement("img")
+         image.setAttribute("src",element.imgurl);
+
+         var invname=document.createElement("h3")
+         invname.innerText=element.name;
+
+         var invrole=document.createElement("p")
+         invrole.innerText=element.role;
+
+         var logobox=document.createElement("div")
+         logobox.setAttribute("class","imglogo")
+         
+         var invlogo=document.createElement("img")
+         invlogo.setAttribute("src",element.inlogo)
+
+         logobox.append(invlogo)
+
+         dbox.append(image,invname,invrole,logobox)
+         document.querySelector("#details").append(dbox);
+         
+     });
+</script>
